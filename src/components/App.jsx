@@ -48,11 +48,9 @@ class App extends Component {
     }
 
     const normalizedFilter = filter.toLowerCase();
-    const result = contacts.filter(({ name }) => {
+    return contacts.filter(({ name }) => {
       return name.toLowerCase().includes(normalizedFilter);
     });
-
-    return result;
   }
 
   deleteContact = id => {
@@ -96,7 +94,7 @@ class App extends Component {
         <ContactForm onSubmit={this.addContact} />
 
         <h2>Contacts</h2>
-        <Filter onChange={this.handleFilter} />
+        <Filter handleChange={this.handleFilter} />
         {isContacts ? (
           <ContactList deleteContact={this.deleteContact} contacts={contacts} />
         ) : (
