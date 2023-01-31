@@ -13,6 +13,7 @@ class App extends Component {
     filter: '',
   };
 
+  // born
   componentDidMount() {
     const contacts = JSON.parse(localStorage.getItem('contacts'));
     if (contacts?.length) {
@@ -21,6 +22,7 @@ class App extends Component {
     }
   }
 
+  // growth
   componentDidUpdate(prevProps, prevState) {
     const { contacts } = this.state;
 
