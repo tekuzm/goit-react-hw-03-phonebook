@@ -1,15 +1,24 @@
 import PropTypes from 'prop-types';
 
-const ContactItem = ({ id, name, number }) => (
-  <li key={id}>
+// ========== styles ==========
+
+import { Item, Bullet, DeleteBtn } from './ContactItem.styled';
+
+const ContactItem = ({ id, name, number, deleteItem }) => (
+  <Item>
+    <Bullet></Bullet>
     {name}: {number}
-  </li>
+    <DeleteBtn onClick={() => deleteItem(id)} type="button">
+      Delete
+    </DeleteBtn>
+  </Item>
 );
 
 export default ContactItem;
 
 ContactItem.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
+  deleteItem: PropTypes.func.isRequired,
 };

@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   addContact = ({ name, number }) => {
-    if (this.isDuplicate(name, number)) {
+    if (this.isDuplicate(name)) {
       alert(`${name} is already in contacts.`);
       return false;
     }
@@ -48,6 +48,8 @@ class App extends Component {
 
       return { contacts: [newContact, ...contacts] };
     });
+
+    return true;
   };
 
   handleFilter = ({ target }) => {
@@ -77,10 +79,8 @@ class App extends Component {
     const normalizedName = name.toLowerCase();
 
     const { contacts } = this.state;
-    const contact = contacts.find(({ name}) => {
-      return (
-        name.toLowerCase() === normalizedName 
-      );
+    const contact = contacts.find(({ name }) => {
+      return name.toLowerCase() === normalizedName;
     });
 
     return Boolean(contact);
