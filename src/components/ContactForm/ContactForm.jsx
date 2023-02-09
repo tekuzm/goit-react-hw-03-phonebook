@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import initialState from './initialState';
 
-// ========== styles ==========
+// ========== styles ===========
 
 import { Form, Input, AddBtn } from './ContactForm.styled';
 
